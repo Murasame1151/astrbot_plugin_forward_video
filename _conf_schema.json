@@ -1,0 +1,104 @@
+{
+  "private_enabled": {
+    "description": "允许私聊使用",
+    "type": "bool",
+    "default": true,
+    "hint": "关闭后，私聊发送 /提取视频 不会触发。"
+  },
+  "group_enabled": {
+    "description": "允许群聊使用",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后，还需要把群号加入下方白名单才会生效。"
+  },
+  "group_whitelist": {
+    "description": "群聊白名单",
+    "type": "list",
+    "default": [],
+    "hint": "填写允许使用的群号（纯数字）。留空表示所有群都不可用。"
+  },
+  "interval_seconds": {
+    "description": "视频发送间隔（秒）",
+    "type": "float",
+    "default": 3,
+    "slider": {
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "hint": "每条视频之间的等待时间，避免发送过快被风控。0 表示不等待。"
+  },
+  "max_videos": {
+    "description": "单次最多发送视频数",
+    "type": "int",
+    "default": 15,
+    "slider": {
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "hint": "0 表示不限制。达到上限后会停止继续查找。"
+  },
+  "max_depth": {
+    "description": "嵌套合并转发最大深度",
+    "type": "int",
+    "default": 2,
+    "slider": {
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    "hint": "顶层转发算第 0 层。0 表示只看顶层，不进入嵌套转发。"
+  },
+  "max_nodes": {
+    "description": "最多遍历节点数",
+    "type": "int",
+    "default": 500,
+    "slider": {
+      "min": 0,
+      "max": 5000,
+      "step": 100
+    },
+    "hint": "防止超大合并转发导致处理时间过长。0 表示不限制。"
+  },
+  "api_timeout_seconds": {
+    "description": "协议端 API 超时（秒）",
+    "type": "int",
+    "default": 10,
+    "slider": {
+      "min": 3,
+      "max": 60,
+      "step": 1
+    },
+    "hint": "调用 get_msg / get_forward_msg 的超时时间。"
+  },
+  "no_video_tip": {
+    "description": "没有视频时的提示",
+    "type": "text",
+    "default": "合并转发里没有视频",
+    "hint": "引用的是合并转发但里面没有视频时发送的文案。"
+  },
+  "send_summary": {
+    "description": "发送完成后汇总",
+    "type": "bool",
+    "default": true,
+    "hint": "发送结束后回复“共 N 条，成功 x 条，失败 y 条”。关闭后只在失败/停止时按 error_tip 提示。"
+  },
+  "error_tip": {
+    "description": "失败时发送提示",
+    "type": "bool",
+    "default": true,
+    "hint": "获取转发失败、视频发送失败或缺少链接时是否在聊天里提示。"
+  },
+  "cooldown_seconds": {
+    "description": "同一用户冷却（秒）",
+    "type": "int",
+    "default": 0,
+    "slider": {
+      "min": 0,
+      "max": 300,
+      "step": 5
+    },
+    "hint": "0 表示不限制。冷却期间再次触发会被静默忽略。"
+  }
+}

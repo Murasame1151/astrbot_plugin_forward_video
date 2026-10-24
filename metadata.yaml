@@ -1,0 +1,9 @@
+name: astrbot_plugin_forward_video
+display_name: 合并转发视频提取
+short_desc: 引用合并转发并发送 /提取视频，逐条提取其中的视频
+desc: 当用户引用一条合并转发消息并发送 /提取视频 时，插件会解析该合并转发（包括嵌套转发），把其中的视频逐条发送给用户。仅支持 OneBot v11（aiocqhttp）平台。
+version: v0.1.0
+author: Murasame1151
+repo: https://github.com/Murasame1151/astrbot_plugin_forward_video
+support_platforms:
+  - aiocqhttp
